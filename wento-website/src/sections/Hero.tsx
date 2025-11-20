@@ -82,7 +82,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         >
            {/* Mockup Composition */}
            <div className="absolute top-10 right-10 w-80 h-[550px] bg-slate-800 rounded-[3rem] border-8 border-slate-900 shadow-2xl overflow-hidden z-20 rotate-[-6deg] hover:rotate-0 transition-all duration-500">
-              <img src="https://placehold.co/600x1000/1e293b/f97316?text=APP+INTERFACE+MAP" alt="App Interface" className="w-full h-full object-cover opacity-80" />
+              <img src="assets/mockup_wento.png" alt="App Interface" className="w-full h-full object-cover opacity-80" />
               <div className="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent p-6 flex flex-col justify-end">
                 <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
                     <div className="flex items-center gap-3 mb-2">
