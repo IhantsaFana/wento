@@ -1,12 +1,10 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Bike, Wallet, MapPin, PersonStanding, Car } from 'lucide-react';
 
-interface CourierProps {
-    onNavigate: (view: 'home' | 'download') => void;
-}
-
-const Courier: React.FC<CourierProps> = ({ onNavigate }) => {
+const Courier: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <section id="courier" className="py-24 bg-orange-50 relative overflow-hidden">
         {/* Background Pattern */}
@@ -69,7 +67,7 @@ const Courier: React.FC<CourierProps> = ({ onNavigate }) => {
                 </div>
             </div>
             <button 
-                onClick={() => onNavigate('download')}
+                onClick={() => navigate('/download')}
                 className="w-full lg:w-auto bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-orange-500/30 transition-all active:scale-95"
             >
                 S'inscrire comme Livreur

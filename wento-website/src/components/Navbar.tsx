@@ -1,14 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface NavbarProps {
-  onNavigate: (view: 'home' | 'download') => void;
-  currentView: 'home' | 'download';
-}
-
-const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
+const Navbar: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const currentView = location.pathname === '/' ? 'home' : 'download';
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -23,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
   const handleNavClick = (href: string) => {
     if (currentView === 'download') {
         // Si on est sur la page download, on retourne à l'accueil d'abord
-        onNavigate('home');
+        navigate('/');
         // Petit délai pour laisser le temps au rendu de se faire avant de scroll
         setTimeout(() => {
              const element = document.querySelector(href);
@@ -64,7 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
           {/* Logo Image */}
           <div 
             className="flex items-center gap-2 cursor-pointer" 
-            onClick={() => onNavigate('home')}
+            onClick={() => navigate('/')}
           >
             <img src="/assets/logo.png" alt="Wento Logo" className="h-10 w-10 rounded-lg object-contain" />
           </div>
@@ -83,14 +82,14 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
             
             {currentView === 'download' ? (
                 <button 
-                    onClick={() => onNavigate('home')}
+                    onClick={() => navigate('/')}
                     className={`text-sm font-medium hover:text-orange-500 transition-colors ${subTextColorClass}`}
                 >
                     Retour au site
                 </button>
             ) : (
                 <button 
-                    onClick={() => onNavigate('download')}
+                    onClick={() => navigate('/download')}
                     className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-lg shadow-orange-500/30 text-sm"
                 >
                 Télécharger l'App
@@ -133,7 +132,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
               <div className="pt-4">
                 <button 
                     onClick={() => {
-                        onNavigate('download');
+                        navigate(currentView === 'download' ? '/' : '/download');
                         setIsMobileMenuOpen(false);
                     }}
                     className="w-full bg-orange-500 text-white py-4 rounded-xl font-bold shadow-lg shadow-orange-500/30"

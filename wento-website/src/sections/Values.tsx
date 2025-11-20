@@ -85,7 +85,7 @@ const Values: React.FC = () => {
                 </div>
                 <div className="flex-1 order-1 md:order-2 w-full flex justify-center">
                      <div className="relative w-64 h-80 bg-white rounded-[2rem] shadow-2xl border-4 border-slate-100 overflow-hidden rotate-3 hover:rotate-0 transition-transform duration-500">
-                         <img src="https://placehold.co/600x800/f97316/white?text=PHOTO+COLIS+SCELLE" className="w-full h-full object-cover" alt="Package" />
+                         <img src="assets/colis.png" className="w-full h-full object-cover" alt="Package" />
                          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                             <div className="bg-white/90 backdrop-blur px-4 py-2 rounded-lg flex items-center gap-2 shadow-lg">
                                 <ShieldCheck size={20} className="text-green-500" />

@@ -1,15 +1,13 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Package, UserCheck, ShieldCheck, Smartphone, MapPin, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface HowItWorksProps {
-    onNavigate: (view: 'home' | 'download') => void;
-}
-
 type UserType = 'sender' | 'courier';
 
-const HowItWorks: React.FC<HowItWorksProps> = ({ onNavigate }) => {
+const HowItWorks: React.FC = () => {
+  const navigate = useNavigate();
   const [userType, setUserType] = useState<UserType>('sender');
 
   return (
@@ -102,7 +100,7 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ onNavigate }) => {
 
         <div className="mt-16 text-center">
             <button 
-                onClick={() => onNavigate('download')}
+                onClick={() => navigate('/download')}
                 className="bg-slate-900 text-white px-8 py-4 rounded-full font-bold shadow-xl hover:bg-slate-800 transition-colors w-full sm:w-auto"
             >
                 Commencer l'expérience Wento

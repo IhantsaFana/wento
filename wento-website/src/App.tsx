@@ -1,37 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import Hero from './sections/Hero';
-import Values from './sections/Values';
-import HowItWorks from './sections/HowItWorks';
-import SME from './sections/SME';
-import Courier from './sections/Courier';
+import Home from './pages/Home';
 import Download from './pages/Download';
 
-type ViewState = 'home' | 'download';
-
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<ViewState>('home');
-
-  // Fonction pour naviguer et scroller en haut
-  const navigateTo = (view: ViewState) => {
-    setCurrentView(view);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <Layout onNavigate={navigateTo} currentView={currentView}>
-        {currentView === 'home' ? (
-          <>
-            <Hero onNavigate={navigateTo} />
-            <Values />
-            <HowItWorks onNavigate={navigateTo} />
-            <SME onNavigate={navigateTo} />
-            <Courier onNavigate={navigateTo} />
-          </>
-        ) : (
-          <Download onBack={() => navigateTo('home')} />
-        )}
-    </Layout>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout><Home /></Layout>} />
+        <Route path="/download" element={<Layout><Download /></Layout>} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

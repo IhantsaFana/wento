@@ -1,12 +1,10 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Building2, TrendingUp, Clock, Wallet, Laptop } from 'lucide-react';
 
-interface SMEProps {
-    onNavigate: (view: 'home' | 'download') => void;
-}
-
-const SME: React.FC<SMEProps> = ({ onNavigate }) => {
+const SME: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <section id="pme" className="py-24 bg-slate-900 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,7 +56,7 @@ const SME: React.FC<SMEProps> = ({ onNavigate }) => {
 
             <div className="pt-6">
                 <button 
-                    onClick={() => onNavigate('download')}
+                    onClick={() => navigate('/download')}
                     className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-200 transition-colors shadow-lg shadow-white/10 w-full sm:w-auto"
                 >
                     Créer un compte Pro

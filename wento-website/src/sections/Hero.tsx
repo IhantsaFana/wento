@@ -1,13 +1,11 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Package, ChevronRight, Truck, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-interface HeroProps {
-    onNavigate: (view: 'home' | 'download') => void;
-}
-
-const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
+const Hero: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-900">
       {/* Background Elements */}
@@ -37,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 w-full sm:w-auto">
             <button 
-                onClick={() => onNavigate('download')}
+                onClick={() => navigate('/download')}
                 className="group relative overflow-hidden px-8 py-4 bg-white text-slate-900 rounded-2xl font-bold text-lg shadow-xl transition-all hover:scale-105 active:scale-95 w-full sm:w-auto"
             >
               <div className="flex items-center justify-center sm:justify-start gap-3">
@@ -48,7 +46,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </button>
             
             <button 
-                onClick={() => onNavigate('download')}
+                onClick={() => navigate('/download')}
                 className="group px-8 py-4 bg-transparent border border-slate-700 hover:border-orange-500 hover:bg-slate-800 text-white rounded-2xl font-bold text-lg transition-all hover:scale-105 active:scale-95 w-full sm:w-auto"
             >
               <div className="flex items-center justify-center sm:justify-start gap-3">
